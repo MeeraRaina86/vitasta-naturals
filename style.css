@@ -138,7 +138,7 @@ img {
 /* --- Hero Section --- */
 .hero {
     height: 85vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1600x900?text=Vitasta+River+Landscape');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-kashmir-vitasta.jpg'); /* UPDATED IMAGE PATH */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
