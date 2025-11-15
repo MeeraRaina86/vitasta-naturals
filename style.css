@@ -15,13 +15,24 @@
     box-sizing: border-box;
 }
 
+/* === Kashmiri Pattern Background === */
 body {
     font-family: var(--body-font);
     color: var(--text-color);
-    background-color: var(--white-color);
+    background-color: var(--bg-color); 
+    
+    background-image: 
+        linear-gradient(rgba(255, 250, 235, 0.85), rgba(255, 250, 235, 0.85)), 
+        url('images/kashmiri-pattern.jpg?v=1'); 
+    
+    background-repeat: repeat, repeat;
+    background-attachment: fixed; 
+    
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden; 
 }
+/* === END UPDATE === */
+
 
 .container {
     max-width: 1100px;
@@ -70,7 +81,7 @@ img {
 }
 
 .cta-button:hover {
-    background-color: #B45D05; /* Darker saffron */
+    background-color: #B45D05; 
     transform: translateY(-2px);
 }
 
@@ -87,16 +98,16 @@ img {
 }
 
 .cta-button-secondary:hover {
-    background-color: #27641F; /* Lighter green */
+    background-color: #27641F; 
     transform: translateY(-2px);
 }
 
 
 /* --- Header & Navigation --- */
 .main-header {
-    background: var(--white-color);
+    background: var(--white-color); 
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 1rem 0;
+    padding: 0.5rem 0; 
     position: sticky;
     top: 0;
     z-index: 100;
@@ -109,11 +120,23 @@ img {
 }
 
 .logo {
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+}
+
+.logo img {
+    height: 55px; 
+    width: auto;
+}
+
+.logo span {
     font-family: var(--heading-font);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary-color);
-    text-decoration: none;
+    line-height: 1; 
 }
 
 .main-nav ul {
@@ -135,7 +158,7 @@ img {
     padding-bottom: 5px;
 }
 
-.main-nav a::after { /* Underline effect on hover */
+.main-nav a::after { 
     content: '';
     position: absolute;
     bottom: 0;
@@ -156,9 +179,8 @@ img {
     color: var(--primary-color);
 }
 
-/* Mobile Nav Toggle Button */
 .nav-toggle {
-    display: none; /* Hidden on desktop */
+    display: none; 
     background: none;
     border: none;
     cursor: pointer;
@@ -169,7 +191,7 @@ img {
 /* --- Hero Section --- */
 .hero {
     height: 85vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-kashmir-vitasta.jpg'); /* UPDATED IMAGE PATH */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-kashmir-vitasta.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -182,6 +204,13 @@ img {
 
 .hero-content {
     max-width: 600px;
+}
+
+/* === UPDATED: Logo Size === */
+.hero-logo {
+    height: 140px; /* WAS 100px */
+    width: auto;
+    margin-bottom: 1rem; 
 }
 
 .hero-content h1 {
@@ -197,10 +226,14 @@ img {
     margin-bottom: 2rem;
 }
 
-/* --- Shop by Collection Section --- */
-.shop-by-collection {
+/* --- Content Sections (Shop, Brand) --- */
+/* === FIX: Made sections transparent to show body pattern === */
+.shop-by-collection,
+.brand-story-snippet,
+.trust-bar {
     padding: 4rem 0;
-    background-color: var(--bg-color);
+    background-color: transparent; /* WAS var(--white-color) */
+    border-bottom: 1px solid #EAE1C8; 
 }
 
 .collection-grid {
@@ -210,22 +243,23 @@ img {
 }
 
 .collection-card {
-    background: var(--white-color);
+    background: var(--white-color); /* Cards are still white */
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    border: 1px solid #eee; 
 }
 
 .collection-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 
 .collection-card img {
     width: 100%;
-    height: 250px; /* Make images larger for collection cards */
+    height: 250px; 
     object-fit: cover;
     border-bottom: 1px solid #eee;
 }
@@ -244,13 +278,6 @@ img {
     font-size: 1rem;
     margin-bottom: 1.8rem;
     color: #555;
-}
-
-
-/* --- Brand Story Snippet --- */
-.brand-story-snippet {
-    padding: 5rem 0;
-    background: var(--white-color);
 }
 
 .snippet-content {
@@ -278,27 +305,23 @@ img {
 }
 
 /* --- Trust Bar --- */
-.trust-bar {
-    background-color: var(--bg-color);
-    padding: 3rem 0;
-}
-
 .trust-bar .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap; /* Added for mobile */
+    flex-wrap: wrap; 
     gap: 1rem;
 }
 
 .trust-item {
     text-align: center;
     flex: 1;
-    min-width: 150px; /* Ensures they don't get too squished */
+    min-width: 150px; 
 }
 
 .trust-item .icon {
     font-size: 2.5rem;
+    color: var(--secondary-color); 
 }
 
 .trust-item p {
@@ -341,9 +364,17 @@ img {
         padding: 0 1rem;
     }
 
+    .logo span {
+        font-size: 1.2rem; 
+    }
+    .logo img {
+        height: 45px; 
+    }
+
+
     .nav-toggle {
-        display: block; /* Show hamburger button */
-        z-index: 1001; /* Above everything */
+        display: block; 
+        z-index: 1001; 
     }
 
     .main-nav {
@@ -355,7 +386,6 @@ img {
         background: var(--white-color);
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         
-        /* Hide it by default */
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         
@@ -363,12 +393,11 @@ img {
     }
 
     .main-nav.visible {
-        /* Show it when toggled */
         transform: translateX(0);
     }
 
     .main-nav ul {
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column; 
         padding-top: 5rem;
         align-items: center;
     }
@@ -386,7 +415,7 @@ img {
     }
     
     .main-nav a::after {
-        display: none; /* Remove underline effect on mobile */
+        display: none; 
     }
 
     .hero-content h1 {
@@ -405,17 +434,43 @@ img {
     }
 
     .collection-grid {
-        grid-template-columns: 1fr; /* Stack collections on mobile */
+        grid-template-columns: 1fr; 
     }
 
     .collection-card img {
-        height: 200px; /* Adjust image height for smaller screens */
+        height: 200px; 
     }
 }
 
-/* --- About Us Page Specific Styles (Keep these in your style.css as well) --- */
+/* --- Page-Specific Styles (About, Products, etc.) --- */
+
+.coming-soon-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 4rem auto; 
+    padding: 4rem 2rem;
+    min-height: 50vh;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* Set max width to match container */
+    max-width: 1100px;
+}
+.coming-soon-section h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+.coming-soon-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- About Us / Knowledge Page Styles --- */
 .page-hero {
-    height: 60vh; /* Shorter hero for internal pages */
+    height: 60vh; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -424,17 +479,17 @@ img {
     align-items: center;
     text-align: center;
     color: var(--white-color);
-    position: relative; /* For the overlay */
+    position: relative; 
 }
 
-.page-hero::before { /* Dark overlay for better text readability */
+.page-hero::before { 
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay than homepage */
+    background: rgba(0, 0, 0, 0.4); 
     z-index: 1;
 }
 
@@ -455,8 +510,11 @@ img {
     font-weight: 300;
 }
 
+/* === FIX: Made this section transparent as well === */
 .about-section {
     padding: 5rem 0;
+    background-color: transparent; /* WAS var(--white-color) */
+    border-bottom: 1px solid #EAE1C8;
 }
 
 .about-content {
@@ -465,8 +523,8 @@ img {
 }
 
 .about-content h2 {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
 }
 
@@ -475,6 +533,11 @@ img {
     align-items: center;
     gap: 3rem;
     margin-bottom: 4rem;
+    /* === FIX: Added white background to content blocks === */
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .content-block:last-of-type {
@@ -488,26 +551,27 @@ img {
 }
 
 .content-image {
-    flex: 0 0 40%; /* Fixed width for image */
+    flex: 0 0 40%; 
     max-width: 40%;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .content-image.left {
-    margin-right: 2rem; /* Space when image is on left */
+    margin-right: 2rem; 
 }
 
 .content-image.right {
-    margin-left: 2rem; /* Space when image is on right */
+    margin-left: 2rem; 
 }
 
 .content-block.reverse-order {
-    flex-direction: row-reverse; /* Image on right, text on left */
+    flex-direction: row-reverse; 
 }
 
+/* === FIX: This style is now used on the content-block itself === */
 .alt-background {
-    background-color: var(--bg-color); /* Light cream background for contrast */
+    background-color: #F8F4E8; /* A solid, slightly darker cream */
 }
 
 .cta-section {
@@ -538,15 +602,22 @@ img {
 
     .about-content h2 {
         font-size: 2rem;
+        text-align: center;
     }
 
     .content-block {
-        flex-direction: column; /* Stack image and text vertically */
+        flex-direction: column; 
         gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
     }
 
     .content-block.reverse-order {
-        flex-direction: column; /* Stacking remains same */
+        flex-direction: column; 
+    }
+    
+    .alt-background {
+        padding: 1.5rem;
     }
 
     .content-image,
@@ -554,7 +625,7 @@ img {
     .content-image.right {
         flex: none;
         max-width: 100%;
-        margin: 0; /* Remove specific margins for stacking */
+        margin: 0; 
     }
 
     .content-block p {
