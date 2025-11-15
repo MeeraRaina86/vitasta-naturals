@@ -197,45 +197,55 @@ img {
     margin-bottom: 2rem;
 }
 
-/* --- Featured Products --- */
-.featured-products {
+/* --- Shop by Collection Section --- */
+.shop-by-collection {
     padding: 4rem 0;
     background-color: var(--bg-color);
 }
 
-.product-grid {
+.collection-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
 }
 
-.product-card {
+.collection-card {
     background: var(--white-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12); /* Enhanced shadow */
+.collection-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.product-card img {
+.collection-card img {
     width: 100%;
-    height: 200px;
+    height: 250px; /* Make images larger for collection cards */
     object-fit: cover;
+    border-bottom: 1px solid #eee;
 }
 
-.product-info {
-    padding: 1.5rem;
+.collection-info {
+    padding: 1.8rem;
 }
 
-.product-info p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+.collection-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
 }
+
+.collection-info p {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+    color: #555;
+}
+
 
 /* --- Brand Story Snippet --- */
 .brand-story-snippet {
@@ -392,5 +402,162 @@ img {
     
     .snippet-text h2 {
         text-align: center;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr; /* Stack collections on mobile */
+    }
+
+    .collection-card img {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+}
+
+/* --- About Us Page Specific Styles (Keep these in your style.css as well) --- */
+.page-hero {
+    height: 60vh; /* Shorter hero for internal pages */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    position: relative; /* For the overlay */
+}
+
+.page-hero::before { /* Dark overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay than homepage */
+    z-index: 1;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.page-hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--white-color);
+    margin-bottom: 0.5rem;
+}
+
+.page-hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.about-section {
+    padding: 5rem 0;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.content-block {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.content-block:last-of-type {
+    margin-bottom: 0;
+}
+
+.content-block p {
+    flex: 1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.content-image {
+    flex: 0 0 40%; /* Fixed width for image */
+    max-width: 40%;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.content-image.left {
+    margin-right: 2rem; /* Space when image is on left */
+}
+
+.content-image.right {
+    margin-left: 2rem; /* Space when image is on right */
+}
+
+.content-block.reverse-order {
+    flex-direction: row-reverse; /* Image on right, text on left */
+}
+
+.alt-background {
+    background-color: var(--bg-color); /* Light cream background for contrast */
+}
+
+.cta-section {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--white-color);
+    margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-hero-content p {
+        font-size: 1rem;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .content-block {
+        flex-direction: column; /* Stack image and text vertically */
+        gap: 1.5rem;
+    }
+
+    .content-block.reverse-order {
+        flex-direction: column; /* Stacking remains same */
+    }
+
+    .content-image,
+    .content-image.left,
+    .content-image.right {
+        flex: none;
+        max-width: 100%;
+        margin: 0; /* Remove specific margins for stacking */
+    }
+
+    .content-block p {
+        font-size: 0.95rem;
     }
 }
